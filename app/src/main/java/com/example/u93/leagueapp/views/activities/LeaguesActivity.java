@@ -22,11 +22,28 @@ public class LeaguesActivity extends BaseActivity<LeaguePresenter> implements IL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.rvRecyclerLeagues);
+
+        setPresenter(new LeaguePresenter());
+        getPresenter().inject(this, getValidateInternet());
+
+        getLeagues();
     }
 
+    private void getLeagues() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                getPresenter().getLeagues();
+            }
+        });
+        thread.start();
 
+        //loadAdapterLeagues(leagues);
 
-    private void loadAdapterLeagues(final ArrayList<League> leagues) {
+    }
+
+    @Override
+    public void loadAdapterLeagues(final ArrayList<League> leagues) {
         if (this != null) {
             this.runOnUiThread(new Runnable() {
                 @Override
