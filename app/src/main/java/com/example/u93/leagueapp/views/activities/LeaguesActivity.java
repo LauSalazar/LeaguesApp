@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import com.example.u93.leagueapp.R;
 import com.example.u93.leagueapp.adapters.AdapterLeagues;
 import com.example.u93.leagueapp.models.League;
+import com.example.u93.leagueapp.models.LeagueObject;
 import com.example.u93.leagueapp.presenters.LeaguePresenter;
 import com.example.u93.leagueapp.views.interfaces.ILeagueView;
 
@@ -20,6 +21,7 @@ public class LeaguesActivity extends BaseActivity<LeaguePresenter> implements IL
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.SplashTheme);
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.rvRecyclerLeagues);
 
@@ -38,17 +40,15 @@ public class LeaguesActivity extends BaseActivity<LeaguePresenter> implements IL
         });
         thread.start();
 
-        //loadAdapterLeagues(leagues);
-
     }
 
     @Override
-    public void loadAdapterLeagues(final ArrayList<League> leagues) {
+    public void loadAdapterLeagues(final LeagueObject leagues) {
         if (this != null) {
             this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    adapter = new AdapterLeagues(leagues, LeaguesActivity.this);
+                    adapter = new AdapterLeagues(leagues.getLeagues(), LeaguesActivity.this);
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
                     recyclerView.setLayoutManager(linearLayoutManager);
                     recyclerView.setAdapter(adapter);

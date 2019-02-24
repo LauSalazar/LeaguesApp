@@ -1,6 +1,7 @@
 package com.example.u93.leagueapp.services;
 
 import com.example.u93.leagueapp.models.League;
+import com.example.u93.leagueapp.models.LeagueObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,9 +17,9 @@ public class Repository {
         iServices = (IServices) serviceFactory.getInstanceService(IServices.class);
     }
 
-    public ArrayList<League> getLeagues() throws IOException{
-        Call<ArrayList<League>> call = iServices.getLeagues();
-        Response<ArrayList<League>> response = call.execute();
+    public LeagueObject getLeagueObject() throws IOException{
+        Call<LeagueObject> call = iServices.getLeagues();
+        Response<LeagueObject> response = call.execute();
         if (response.errorBody() != null){
             return null;
         } else {

@@ -23,6 +23,10 @@ public class AdapterLeagues extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        CustomViewHolder customViewHolder = (CustomViewHolder) holder;
+        League liga = leaguesArrayList.get(position);
+        customViewHolder.ligaName.setText(liga.getName());
+        //customViewHolder.ligaDescription.setText(liga.getDescription());
 
     }
     @Override
@@ -39,11 +43,12 @@ public class AdapterLeagues extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     private class CustomViewHolder extends RecyclerView.ViewHolder{
-        private TextView productoName;
-        private TextView productoDescription;
+        private TextView ligaName;
+        private TextView ligaDescription;
 
         public CustomViewHolder(View itemView) {
             super(itemView);
+            ligaName = itemView.findViewById(R.id.tvLeague);
         }
     }
 
