@@ -2,24 +2,25 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardViewItemLeague"
+    android:id="@+id/cardViewItemTeam"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardCornerRadius="4dp"
     app:cardElevation="4dp">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/ivLeague"
+            android:id="@+id/ivTeam"
             android:layout_width="130dp"
             android:layout_height="130dp" />
         <TextView
-            android:id="@+id/tvLeague"
+            android:id="@+id/tvTeamName"
             android:textStyle="bold"
-            android:layout_toRightOf="@id/ivLeague"
+            android:layout_toRightOf="@id/ivTeam"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

@@ -2,8 +2,11 @@ package com.example.u93.leagueapp.services;
 
 import com.example.u93.leagueapp.models.League;
 import com.example.u93.leagueapp.models.LeagueObject;
+import com.example.u93.leagueapp.models.Team;
+import com.example.u93.leagueapp.models.TeamObject;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -27,4 +30,13 @@ public class Repository {
         }
     }
 
+    public TeamObject getTeams(String idLeague) throws  IOException{
+        Call<TeamObject> call = iServices.getTeamsByLeague(idLeague);
+        Response<TeamObject> response = call.execute();
+        if (response.errorBody() != null){
+            return null;
+        } else {
+            return response.body();
+        }
+    }
 }
