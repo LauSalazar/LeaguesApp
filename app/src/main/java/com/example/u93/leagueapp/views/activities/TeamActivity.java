@@ -1,16 +1,18 @@
 package com.example.u93.leagueapp.views.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.u93.leagueapp.R;
 import com.example.u93.leagueapp.adapters.AdapterTeams;
+import com.example.u93.leagueapp.models.Team;
 import com.example.u93.leagueapp.models.TeamObject;
 import com.example.u93.leagueapp.presenters.TeamPresenter;
 import com.example.u93.leagueapp.views.interfaces.ITeamView;
 
-public class TeamActivity extends BaseActivity<TeamPresenter> implements ITeamView {
+public class TeamActivity extends BaseActivity<TeamPresenter> implements ITeamView, AdapterTeams.OnTeamListener{
     private AdapterTeams adapterTeams;
     private RecyclerView recyclerViewTeams;
     private TeamObject teamObject;
@@ -29,17 +31,31 @@ public class TeamActivity extends BaseActivity<TeamPresenter> implements ITeamVi
         loadAdapterTeams(teamObject);
     }
 
+    @Override
     public void loadAdapterTeams(final TeamObject teamObject) {
-        if (this != null){
-            this.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    adapterTeams = new AdapterTeams(teamObject.getTeams(),TeamActivity.this);
-                    LinearLayoutManager linearLayoutManager  = new LinearLayoutManager((getApplicationContext()));
-                    recyclerViewTeams.setLayoutManager(linearLayoutManager);
-                    recyclerViewTeams.setAdapter(adapterTeams);
-                }
-            });
-        }
+        adapterTeams = new AdapterTeams(teamObject.getTeams(), TeamActivity.this, this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager((getApplicationContext()));
+        recyclerViewTeams.setLayoutManager(linearLayoutManager);
+        recyclerViewTeams.setAdapter(adapterTeams);
+
+    }
+
+    @Override
+    public void loadTeamInfo(Team team) {
+        Intent intent = new Intent(TeamActivity.this,TeamInfoActivity.class);
+        intent.putExtra("team",team);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void onTeamClick(final String idTeam) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                getPresenter().getTeamById(idTeam);
+            }
+        });
+        thread.start();
     }
 }

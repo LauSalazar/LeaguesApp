@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.activities.TeamInfoActivity">
+
+    <ImageView
+        android:id="@+id/ivShirt"
+        android:padding="5dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_gravity="center"
+        android:layout_width="130dp"
+        android:layout_height="130dp" />
+
+    <TextView
+        android:id="@+id/tvNameTeam"
+        android:text="Aston Villa"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvYearFundation"
+        android:text="1985"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivWebSite"
+            android:src="@mipmap/ic_website_background"
+            android:padding="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            />
+        <ImageView
+            android:id="@+id/ivFacebook"
+            android:padding="5dp"
+            android:src="@mipmap/ic_fb_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+        <ImageView
+            android:id="@+id/ivTwitter"
+            android:padding="5dp"
+            android:src="@mipmap/ic_twitter_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <ImageView
+            android:id="@+id/ivInstagram"
+            android:padding="5dp"
+            android:src="@mipmap/ic_instagram_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <ImageView
+            android:id="@+id/ivYouTube"
+            android:padding="5dp"
+            android:src="@mipmap/ic_youtube_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:text="Aston Villa"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+</ScrollView>

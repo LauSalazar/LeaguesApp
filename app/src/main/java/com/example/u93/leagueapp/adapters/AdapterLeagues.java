@@ -31,7 +31,6 @@ public class AdapterLeagues extends RecyclerView.Adapter<RecyclerView.ViewHolder
         CustomViewHolder customViewHolder = (CustomViewHolder) holder;
         final League liga = leaguesArrayList.get(position);
         customViewHolder.ligaName.setText(liga.getName());
-        //customViewHolder.ligaDescription.setText(liga.getDescription());
         ((CustomViewHolder) holder).cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +61,6 @@ public class AdapterLeagues extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private class CustomViewHolder extends RecyclerView.ViewHolder{
         private CardView cardView;
         private TextView ligaName;
-        private TextView ligaDescription;
 
         public CustomViewHolder(View itemView) {
             super(itemView);

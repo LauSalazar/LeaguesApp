@@ -20,6 +20,6 @@ public interface IServices {
     @GET("lookup_all_teams.php")
     Call<TeamObject> getTeamsByLeague(@Query("id") String idLeague);
 
-    @GET("lookupteam.php[id]")
-    Call<Team> getTeam(@Query("id") String idTeam);
+    @GET("lookupteam.php")
+    Call<TeamObject> getTeamById(@Query("id") String idTeam);
 }
