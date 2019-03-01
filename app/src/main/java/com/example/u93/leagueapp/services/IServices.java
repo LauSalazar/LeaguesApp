@@ -1,5 +1,6 @@
 package com.example.u93.leagueapp.services;
 
+import com.example.u93.leagueapp.models.EventObject;
 import com.example.u93.leagueapp.models.League;
 import com.example.u93.leagueapp.models.LeagueObject;
 import com.example.u93.leagueapp.models.Team;
@@ -22,4 +23,9 @@ public interface IServices {
 
     @GET("lookupteam.php")
     Call<TeamObject> getTeamById(@Query("id") String idTeam);
+
+    @GET("eventsnext.php")
+    Call<EventObject> getEventsByTeam(@Query("id") String idTeam);
+
+    //https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=133602
 }

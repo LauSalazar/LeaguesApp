@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_sport_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".views.activities.LeaguesActivity"
             android:theme="@style/SplashTheme">

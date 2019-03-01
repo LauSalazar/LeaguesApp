@@ -3,5 +3,6 @@
 
     <style name="SplashTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash_initial</item>
+        <item name="actionBarStyle">@drawable/sports</item>
     </style>
 </resources>

@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Team implements Serializable {
 
@@ -54,6 +55,16 @@ public class Team implements Serializable {
     @SerializedName("strYoutube")
     @Expose
     private String srcYoutube;
+
+    public ArrayList<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(ArrayList<Event> events) {
+        this.events = events;
+    }
+
+    private ArrayList<Event> events;
 
     public String getStadiumName() {
         return stadiumName;

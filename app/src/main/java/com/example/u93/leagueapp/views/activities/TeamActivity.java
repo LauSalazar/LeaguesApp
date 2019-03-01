@@ -21,6 +21,8 @@ public class TeamActivity extends BaseActivity<TeamPresenter> implements ITeamVi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_teams);
         recyclerViewTeams = findViewById(R.id.rvRecyclerTeams);
         teamObject = (TeamObject) getIntent().getSerializableExtra("teamObject");

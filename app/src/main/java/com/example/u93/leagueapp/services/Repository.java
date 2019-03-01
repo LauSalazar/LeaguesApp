@@ -1,5 +1,6 @@
 package com.example.u93.leagueapp.services;
 
+import com.example.u93.leagueapp.models.EventObject;
 import com.example.u93.leagueapp.models.LeagueObject;
 import com.example.u93.leagueapp.models.TeamObject;
 
@@ -39,6 +40,16 @@ public class Repository {
     public TeamObject getTeamById(String idTeam) throws IOException{
         Call<TeamObject> call = iServices.getTeamById(idTeam);
         Response<TeamObject> response = call.execute();
+        if (response.errorBody() != null) {
+            return null;
+        } else {
+            return response.body();
+        }
+    }
+
+    public EventObject getEventsByTeam(String idTeam) throws IOException{
+        Call<EventObject> call = iServices.getEventsByTeam(idTeam);
+        Response<EventObject> response = call.execute();
         if (response.errorBody() != null) {
             return null;
         } else {
